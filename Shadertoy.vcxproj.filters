@@ -24,9 +24,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="default.vert">
-      <Filter>Arquivos de Recurso</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaderClass.h">
@@ -35,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="default.frag">
+      <Filter>Arquivos de Recurso</Filter>
+    </None>
+    <None Include="default.vert">
       <Filter>Arquivos de Recurso</Filter>
     </None>
   </ItemGroup>

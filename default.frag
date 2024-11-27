@@ -1,7 +1,8 @@
 #version 400
 
+uniform float deltaTime;
+
 void main() {
-
-	gl_FragColor = vec4(gl_FragCoord.xy, 0.0, 1.0);
-
+	vec2 uv_ndc = (gl_FragCoord.xy / vec2(800.0, 600.0)) * 2.0 - 1.0;
+	gl_FragColor = vec4(uv_ndc, 0.0, 1.0);
 }

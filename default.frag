@@ -11,8 +11,9 @@ void main() {
 
 	// Smooth interpolation between 0.1 and 0.9
 	float y = smoothstep(0.1, 0.9, uv_ndc.y);
-	float y_vertical = smoothstep(0.2,0.5,uv_ndc.x) - smoothstep(0.5,0.8,uv_ndc.x); // 50% each side when subtracting we get the inner vertical pixels at the center as the effect
-
-	// make all color channels same color lvl to have a white gradient
-	gl_FragColor = vec4(vec3(y_vertical), 1.0);
+	float y_vertical = smoothstep(0.2,0.5,uv_ndc.x) - smoothstep(0.5,0.8, uv_ndc.x); // 50% each side when subtracting we get the inner vertical pixels at the center as the effect
+	
+	float y_vertical_ = smoothstep(0.2, 0.5, 0.5) - smoothstep(0.5, 0.8, 0.7);
+	vec3 color = mix(vec3(y_vertical), vec3(y_vertical_), abs(sin(deltaTime) * 2.0));
+	gl_FragColor = vec4(vec3(color), 1.0);
 }

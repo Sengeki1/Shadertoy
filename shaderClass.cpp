@@ -46,6 +46,21 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile) {
 		glDeleteShader(fragmentShader);
 	}
 
+	glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &compileStatus);
+	if (compileStatus != GL_TRUE) {
+		// Retrieve the error log
+		GLint logLength;
+		glGetShaderiv(vertexShader, GL_INFO_LOG_LENGTH, &logLength);
+		std::vector<char> log(logLength);
+		glGetShaderInfoLog(vertexShader, logLength, nullptr, log.data());
+
+		// Print the error log
+		std::cerr << "Shader compilation failed:\n" << log.data() << std::endl;
+
+		// Cleanup and return 0 to indicate failure
+		glDeleteShader(vertexShader);
+	}
+
 	ID = glCreateProgram(); // to use both shaders we have to warp them up into a shader program
 
 	glAttachShader(ID, vertexShader);

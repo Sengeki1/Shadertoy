@@ -18,4 +18,6 @@ void main() {
 	abs(cos(deltaTime)) * 2.0);
 
 	gl_FragColor = vec4((vec3(color) * abs(cos(deltaTime)) * vec3(uv_ndc, 1.0)), 1.0);
+
+	//gl_FragColor = vec4(vec3(step(uv_ndc.x, 0.5), step(uv_ndc.y, 0.5), step(uv_ndc.x, 0.5)), 1.0); // banderia colorida
 }

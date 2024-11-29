@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <stb/stb_image.h>
 
 #include "shaderClass.h"
 
@@ -55,6 +56,33 @@ int main() {
 	glBindVertexArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
+	// Image
+
+	int widthImg, heightImg, numColCh;
+	stbi_set_flip_vertically_on_load(true);
+	unsigned char* bytes = stbi_load("what-are-stars-explained.jpg", &widthImg, &heightImg, &numColCh, 0);
+
+	GLuint texture;
+	glGenTextures(1, &texture);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthImg, heightImg, 0, GL_RGB, GL_UNSIGNED_BYTE, bytes);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	stbi_image_free(bytes);
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	GLuint tex0Unit = glGetUniformLocation(shader.ID, "tex0");
+	shader.Activate();
+	glUniform1i(tex0Unit, 0);
+
 	// deltaTime
 
 	float prev_time = float(glfwGetTime());
@@ -74,6 +102,7 @@ int main() {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		shader.Activate();
+		glBindTexture(GL_TEXTURE_2D, texture);
 		glUniform1f(glGetUniformLocation(shader.ID, "deltaTime"), seconds);
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -81,6 +110,7 @@ int main() {
 		glfwSwapBuffers(window);
 	}
 
+	glDeleteTextures(1, &texture);
 
 	return 0;
 }

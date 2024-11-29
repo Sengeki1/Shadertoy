@@ -24,6 +24,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="stb.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shaderClass.h">
@@ -37,5 +40,10 @@
     <None Include="default.vert">
       <Filter>Arquivos de Recurso</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="what-are-stars-explained.jpg">
+      <Filter>Arquivos de Recurso</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -1,28 +1,31 @@
 #version 400
 
+in vec2 texCoords;
+
+uniform sampler2D tex0;
+
 uniform float deltaTime;
 
 void main() {
-	vec2 uv = (gl_FragCoord.xy / vec2(800.0, 600.0));
+	vec2 uv = (gl_FragCoord.xy / vec2(800.0, 600.0)) * 5.;
 
-    vec2 blackHolePosition = vec2(0.5, 0.5);
-	float blackHoleRadius = 0.1;              // Event horizon radius
-    float gravitationalStrength = 2.0;        // Controls bending
+    vec2 blackHolePosition = vec2(0.5, 0.5) * 5.;
+	float blackHoleRadius = 0.3;
+	float effectRadius = 2.3;
 
-	vec3 direction = vec3(normalize(uv - blackHolePosition).xy, 0.0);
-	float distanceToBlackHole = length(uv - blackHolePosition);
+	float distanceToBlackHole = length(abs(uv) - blackHolePosition); // distance of each pixel to the center
 
-	 vec2 backgroundTextureCoordinates;
 	if (distanceToBlackHole < blackHoleRadius) {
 		discard;
-	} else {
-		// Bend the ray based on gravity
-        float bendingFactor = gravitationalStrength / distanceToBlackHole;
-        vec2 bentRay = vec2(direction.yx + (bendingFactor * normalize(uv - blackHolePosition)));
-        
-        // Map bent ray to background
-        backgroundTextureCoordinates = bentRay;
 	}
 
-	gl_FragColor = vec4(vec2(cos(backgroundTextureCoordinates.x * deltaTime)), sin(backgroundTextureCoordinates.y * deltaTime), 1.);
+	vec4 t0, t1 = vec4(0.0);
+	if (distanceToBlackHole < blackHoleRadius + 0.8) {
+		t1 = texture(tex0, sin(distanceToBlackHole * effectRadius) * texCoords);
+	} else {
+		t0 = texture(tex0, texCoords);
+	}
+
+	gl_FragColor = t0 + t1;
+
 }

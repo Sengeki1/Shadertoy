@@ -3,15 +3,26 @@
 uniform float deltaTime;
 
 void main() {
-	vec2 uv_ndc = (gl_FragCoord.xy / vec2(800.0, 600.0));
+	vec2 uv = (gl_FragCoord.xy / vec2(800.0, 600.0));
 
-    float left = smoothstep(0.1, 0.2, uv_ndc.x);
-	float bottom = smoothstep(0.1, 0.2, uv_ndc.y);
+    vec2 blackHolePosition = vec2(0.5, 0.5);
+	float blackHoleRadius = 0.1;              // Event horizon radius
+    float gravitationalStrength = 2.0;        // Controls bending
 
-	float right = smoothstep(0.1, 0.2, 1 - uv_ndc.x); // invert
-	float top = smoothstep(0.1, 0.2, 1 - uv_ndc.y);
+	vec3 direction = vec3(normalize(uv - blackHolePosition).xy, 0.0);
+	float distanceToBlackHole = length(uv - blackHolePosition);
 
-	vec3 color = vec3(cos(left * deltaTime) * sin(bottom * deltaTime) + cos(right * deltaTime) * sin(top * deltaTime));
+	 vec2 backgroundTextureCoordinates;
+	if (distanceToBlackHole < blackHoleRadius) {
+		discard;
+	} else {
+		// Bend the ray based on gravity
+        float bendingFactor = gravitationalStrength / distanceToBlackHole;
+        vec2 bentRay = vec2(direction.yx + (bendingFactor * normalize(uv - blackHolePosition)));
+        
+        // Map bent ray to background
+        backgroundTextureCoordinates = bentRay;
+	}
 
-	gl_FragColor = vec4(color, 1.0);
+	gl_FragColor = vec4(vec2(cos(backgroundTextureCoordinates.x * deltaTime)), sin(backgroundTextureCoordinates.y * deltaTime), 1.);
 }

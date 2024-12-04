@@ -18,6 +18,8 @@ class Shader {
 		Shader(const char* vertexFile, const char* fragmentFile, const char* tesControlFile, const char* tesEvalFile);
 		Shader(const char* vertexFile, const char* fragmentFile, const char* tesControlFile, const char* tesEvalFile, const char* geometryFile);
 
+		void hotReloadGLSL(const char* vertexFile, const char* fragmentFile);
+
 		void Activate();
 		void Delete();
 

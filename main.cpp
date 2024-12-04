@@ -89,6 +89,9 @@ int main() {
 	float seconds = 0;
 
 	while (!glfwWindowShouldClose(window)) {
+
+		shader.hotReloadGLSL("default.vert", "default.frag");
+
 		glfwPollEvents();
 
 		float currentTime = float(glfwGetTime());

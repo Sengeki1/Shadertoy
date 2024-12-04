@@ -84,6 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Resources;Shaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,6 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Resources;Shaders;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,18 +141,18 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="shaderClass.cpp" />
+    <ClCompile Include="Shaders\shaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shaderClass.h" />
+    <ClInclude Include="Shaders\shaderClass.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
+    <None Include="Shaders\default.frag" />
+    <None Include="Shaders\default.vert" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="what-are-stars-explained.jpg" />
+    <Image Include="Resources\what-are-stars-explained.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

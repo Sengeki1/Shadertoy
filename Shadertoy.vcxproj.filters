@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="shaderClass.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -27,22 +24,25 @@
     <ClCompile Include="stb.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="Shaders\shaderClass.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="shaderClass.h">
+    <ClInclude Include="Shaders\shaderClass.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag">
+    <None Include="Shaders\default.frag">
       <Filter>Arquivos de Recurso</Filter>
     </None>
-    <None Include="default.vert">
+    <None Include="Shaders\default.vert">
       <Filter>Arquivos de Recurso</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="what-are-stars-explained.jpg">
+    <Image Include="Resources\what-are-stars-explained.jpg">
       <Filter>Arquivos de Recurso</Filter>
     </Image>
   </ItemGroup>

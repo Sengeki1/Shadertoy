@@ -26,7 +26,7 @@ int main() {
 	gladLoadGL();
 	glViewport(0, 0, 800, 600);
 
-	Shader shader("default.vert", "default.frag");
+	Shader shader("Shaders/default.vert", "Shaders/default.frag");
 
 	float quadVertices[] = {
 		// positions   // texCoords
@@ -60,7 +60,7 @@ int main() {
 
 	int widthImg, heightImg, numColCh;
 	stbi_set_flip_vertically_on_load(true);
-	unsigned char* bytes = stbi_load("what-are-stars-explained.jpg", &widthImg, &heightImg, &numColCh, 0);
+	unsigned char* bytes = stbi_load("Resources/what-are-stars-explained.jpg", &widthImg, &heightImg, &numColCh, 0);
 
 	GLuint texture;
 	glGenTextures(1, &texture);
@@ -90,7 +90,7 @@ int main() {
 
 	while (!glfwWindowShouldClose(window)) {
 
-		shader.hotReloadGLSL("default.vert", "default.frag");
+		shader.hotReloadGLSL("Shaders/default.vert", "Shaders/default.frag");
 
 		glfwPollEvents();
 

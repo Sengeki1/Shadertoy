@@ -43,14 +43,14 @@ Launch VS Code and open the project folder you just cloned.
 
 ### Modify the shader
 
-Navigate to the default.frag file inside the project folder. This file contains the default fragment shader.
+Navigate to the **default.frag** file inside the project folder at the directory **Shaders**. This file contains the default fragment shader.
 
-* Modify the shader code inside the main() function to see the effects in real time.
-* When you make changes to default.frag, the shader will automatically reload, and you’ll see the updates immediately in the running program.
+* Modify the shader code inside the **main()** function to see the effects in real time.
+* When you make changes to **default.frag**, the shader will automatically reload, and you’ll see the updates immediately in the running program.
 
 ### Run the program
 
-You can compile and run the project directly from VS Code. Use the integrated terminal to run the build commands:
+You can compile and run the project directly from **VS Code**. Use the integrated terminal to run the build commands:
 
 ```bash
 mkdir build
@@ -60,7 +60,7 @@ make
 ./shadertoy
 ```
 
-This will compile the project and run the executable. The window will display your shader, and any changes you make to default.frag will be reflected instantly.
+This will compile the project and run the executable. The window will display your shader, and any changes you make to **default.frag** will be reflected instantly.
 
 # Contributing
 

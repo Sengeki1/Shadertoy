@@ -22,6 +22,7 @@ set_target_properties(glad PROPERTIES LINKER_LANGUAGE C)
 # Add executable
 add_executable(ShaderToy 
     main.cpp
+    glad.c
     stb.cpp
     Shaders/shaderClass.cpp
 )

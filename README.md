@@ -66,3 +66,7 @@ The window will display your shader, and any changes you make to **default.frag*
 # Contributing
 
 Feel free to fork the repository, make your changes, and create a pull request! If you have any questions or suggestions, open an issue and I’ll be happy to help.
+
+# Resources
+
+* A nice book to learn shaders <https://thebookofshaders.com/>

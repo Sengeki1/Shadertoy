@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 #build
 build/
+Shaders/default.frag

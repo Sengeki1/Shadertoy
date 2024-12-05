@@ -55,12 +55,13 @@ You can compile and run the project directly from **VS Code**. Use the integrate
 ```bash
 mkdir build
 cd build
-cmake ..
-make
-./shadertoy
+cmake .. -G Visual Studio 17 2022" -A x64
 ```
 
-This will compile the project and run the executable. The window will display your shader, and any changes you make to **default.frag** will be reflected instantly.
+Next you need to build the solution and it will generate an .exe file in the Release folder. This will compile the project and run the executable.
+What you need to do next is to copy or drag the .exe file into the main folder or root directory where all the resources are.
+
+The window will display your shader, and any changes you make to **default.frag** will be reflected instantly.
 
 # Contributing
 

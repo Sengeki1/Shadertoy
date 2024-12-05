@@ -30,6 +30,6 @@ add_executable(ShaderToy
 # Link glad, GLFW, and OpenGL
 target_link_libraries(ShaderToy PRIVATE 
     glad
-    ${CMAKE_SOURCE_DIR}/Libraries/lib/glfw3.lib 
     opengl32.lib
+    ${CMAKE_SOURCE_DIR}/Libraries/lib/glfw3.lib 
 )

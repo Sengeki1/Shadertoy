@@ -20,16 +20,16 @@ It features hot reloading, allowing you to see changes to the shader in real tim
 Open your terminal and run the following command:
 
 ```bash
-git clone https://github.com/sengeki1/shadertoy-project.git
+git clone https://github.com/Sengeki1/Shadertoy.git
 ```
 
 ### Install dependencies
 
 Ensure you have the necessary dependencies installed. For this project, you'll need:
 
-* GLFW: For windowing and input handling.
-* GLAD: For loading OpenGL extensions.
-* GLM: For math operations.
+* **GLFW**: For windowing and input handling.
+* **GLAD**: For loading OpenGL extensions.
+* **GLM**: For math operations.
   
 If you’re using a package manager like vcpkg or brew, you can install these libraries with:
 

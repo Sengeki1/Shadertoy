@@ -24,4 +24,4 @@ class Shader {
 		void Delete();
 
 };
-#endif SHADER_CLASS_H
+#endif

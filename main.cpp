@@ -23,7 +23,14 @@ int main() {
 	}
 
 	glfwMakeContextCurrent(window);
-	gladLoadGL();
+
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+		std::cerr << "Failed to initialize GLAD" << std::endl;
+		glfwDestroyWindow(window);
+		glfwTerminate();
+		return -1;
+	}
+
 	glViewport(0, 0, 800, 600);
 
 	Shader shader("Shaders/default.vert", "Shaders/default.frag");

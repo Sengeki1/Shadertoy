@@ -10,7 +10,7 @@ It features hot reloading, allowing you to see changes to the shader in real tim
 * **Simple setup**: Minimal configuration to get started, with just a few steps.
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/16a61033-e2b1-49b2-b18b-04d0e778fb02">
+  <img src="https://github.com/user-attachments/assets/bec0ba6a-f86f-42de-af6e-35d5886eb0a4">
 </p>
 
 ## Setup
@@ -58,7 +58,7 @@ cd build
 cmake .. -G Visual Studio 17 2022" -A x64
 ```
 
-Next you need to build the solution and it will generate an .exe file in the Release folder. This will compile the project and run the executable.
+Next you need to build the solution inside the build directory and it will generate an .exe file in the Release folder. This will compile the project and run the executable.
 What you need to do next is to copy or drag the .exe file into the main folder or root directory where all the resources are.
 
 The window will display your shader, and any changes you make to **default.frag** will be reflected instantly.
